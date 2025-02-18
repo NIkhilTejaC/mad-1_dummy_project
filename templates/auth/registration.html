@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" initial-scale=1, maximum-scale=1, user-scalable=no />
+        <title>Login Page</title>
+        <link rel="stylesheet" href="/static/login.css">
+        <style>
+          .error {
+              color : red;
+          }
+                  
+          body {
+          background-image: url('/static/Background_image_home.png');
+  background-size: cover; /* or contain */
+  background-position: center center; 
+  background-repeat: no-repeat; 
+        }
+  
+        </style>
+  
+    </head>
+
+    <body>
+        <div class="headings" >
+          <center>
+            <h1 text-align="center">Registration</h1>
+            <h2>Welcome to Quiz Master</h2>
+        
+            
+        <form action="{{ url_for('auth.register') }}" method="POST">
+            <div class="form-group">
+              <label for="email">Email address : </label>
+              <input type="email" class="form-control" id="email" placeholder="email" style="text-align:center;" name="u_email" required>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="password">Enter Password : </label>
+              <input type="password" class="form-control" id="password" placeholder="******"  style="text-align:center;" name="pwd" required>
+            </div>
+            <!-- <br> -->
+            <!-- <div class="form-group">
+              <label for="pwd-1">Confirm Password</label>
+              <input type="password" class="form-control" id="pwd-1" placeholder="******" name="pwd-1" required>
+            </div> -->
+            <br>
+            <div class="form-group">
+                <label for="name">Full Name : </label>
+                <input type="text" class="form-control" id="name" placeholder="full name" name="name" style="text-align:center;" required>
+            </div>
+            <br>
+            <div class="form-group">
+            <label for="qual">Qualification : </label>
+            <select name="qual" id="qual" name="qual" required>
+                <option value="none">select</option>
+                <option value="10th">10th pass</option>
+                <option value="12th">12th pass</option>
+                <option value="bachelors">Bachelors</option>
+                <option value="master">Masters</option>
+              </select>
+            </div>
+
+            <br>
+            <div class="form-group">
+                <label for="dob">Date of Birth : </label>
+                <input type="date" class="form-control" id="dob" placeholder="DOB" name="dob" required>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Register</button>
+            
+          </form>
+          <p>Already Registered ?  <a href="{{ url_for('auth.user_login') }}">Login Here</a></p> 
+          <br>
+
+        </center>
+        </div>
+    </body>
+
+
+</html>

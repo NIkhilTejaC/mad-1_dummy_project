@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" initial-scale=1, maximum-scale=1, user-scalable=no />
+        <title>User Summary</title>
+        <link rel="stylesheet" href="/static/admin_add_subject.css">
+        <style>      
+          body {
+            background-image: url('/static/Background_image_dashboard.png');
+          }
+  
+        </style>
+    </head>
+
+    <body>
+
+        <div class="box">
+            <center>
+            <h2>New Quiz</h2>
+            <form action="/admin_edit_quiz/{{id}}" method="POST">
+                
+                  <div class="form-group">
+                    <label for="name">Subject-ID</label>
+                    <input type="number" class="form-control" id="name" placeholder="{{qz.subject_id}}" name="subject_id" required>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="name">Chapter-ID</label>
+                    <input type="number" class="form-control" id="name" placeholder="{{qz.chapter_id}}" name="chapter_id" required>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="name">Quiz Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="{{qz.name}}" name="name" required>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Date of Quiz</label>
+                    <input type="date" class="form-control" id="exampleInputPassword1" placeholder="{{qz.date_of_quiz}}" name="doq" required>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Time Duration</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="{{qz.time_duration}}" name="toq" required>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Remarks</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="{{qz.remarks}}" name="remark" required>
+                  </div>
+                    <br>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">No of Questions</label>
+                      <input type="number" class="form-control" id="exampleInputPassword1" placeholder="{{qz.no_of_questions}}" name="noq" required>
+                    </div>
+                      <br>
+                  <button type="submit" class="btn btn-info">Save</button>
+                    <br>
+                </form>
+
+                <br>
+                    <a href="/admin_quiz" >
+                      <button type="submit" class="btn btn-info">Cancel</button>
+                    </a>   
+                      <br>
+        </center>
+        </div>
+        
+    </body>
+
+
+</html>

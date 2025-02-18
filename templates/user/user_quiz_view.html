@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" initial-scale=1, maximum-scale=1, user-scalable=no />
+        <title>Quiz</title>
+        <link rel="stylesheet" href="/static/admin_add_subject.css">
+        <style>      
+            body {
+              background-image: url('/static/Background_image_dashboard.png');
+            }
+    
+          </style>
+    </head>
+
+    <body>
+
+        <div class="sub_chp_box">
+                <center>
+                            {% for chapter in chapter %}
+                                    {% if quiz.chapter_id == chapter.id %}
+                                            {% for subject in subject %}
+                                                 {% if chapter.subject_id == subject.id %}
+                                                        <table>
+                                                            <thead>
+                                                                <tc>
+                                                                    <th scope="row">Quiz Name</th>
+                                                                    <th scope="row">Chapter Name</th>
+                                                                    <th scope="row">Subject Name</th>
+                                                                    <th scope="row">No of Questions</th>
+                                                                    <th scope="row">Time Duration</th>
+                                                                </tc>
+                                                            </thead>
+
+                                                            <tbody>
+                                                                <tc>
+                                                                    <td>{{quiz.name}}</td>
+                                                                    <td>{{chapter.name}}</td>
+                                                                    <td>{{subject.name}}</td>
+                                                                    <td>{{quiz.no_of_questions}}</td>
+                                                                    <td>{{quiz.time_duration}}</td>
+
+                                                                </tc>
+                                                            </tbody>
+                                                        </table>
+                                                 {%endif%}
+                                            {% endfor %}
+                                    {% endif %}   
+                            {% endfor %}                  
+                              
+                </center>
+        </div>
+        
+    </body>
+
+
+</html>

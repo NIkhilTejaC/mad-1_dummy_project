@@ -1,0 +1,21 @@
+HTML Files required: 
+            1. Login Page 
+            2. Registration Page 
+            3. User 
+                    3.1 User DashBoard 
+                    3.2 Start the Quiz 
+                    3.3 View the Quiz 
+                    3.4 Scores 
+                    3.5 Summary Charts 
+            4. Admin 
+                    4.1 Admin Dashboard 
+                                4.1.1 New Subject 
+                                4.1.2 New Chapter
+                    4.2 Quiz Management 
+                                4.2.1 New Question 
+                                4.2.2 New Quiz 
+                    4.3 Summary Charts 
+
+
+### To install all the versions in requirements.txt ###
+pip install -r requirements.txt

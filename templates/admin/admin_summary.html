@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" initial-scale=1, maximum-scale=1, user-scalable=no />
+        <title>User Summary</title>
+        <link rel="stylesheet" href="/static/admin_add_subject.css">
+        <style>      
+          body {
+            background-image: url('/static/Background_image_dashboard.png');
+          }
+  
+        </style>
+    </head>
+
+    <body>
+      <div class="topnav">
+        <a href="/admin_dashboard">Home</a>
+        <a href="/admin_quiz">Quiz</a>
+        <a class="active" href="/admin_summary">Summary</a>
+        <a href="/logout">Logout</a>
+        <div class="topnav-right">
+            <a href="#search">Search</a>
+            <a class="active_1">Admin</a>
+          </div>
+      </div>
+           
+
+      <div class="sub_chp_box">
+        <center>
+                <h1>Users</h1>
+          
+                  <table>
+                          <thead>
+                                  <tr>
+                                          <th scope="col">User ID</th>
+                                          <th scope="col">Email</th>
+                                          <th scope="col">Password</th>
+                                          <th scope="col">Full Name</th>
+                                          <th scope="col">Qualification</th>
+                                          <th scope="col">Date of Birth</th>
+                                  </tr>
+                          </thead>
+                          {% for user in user %}
+                          <tbody>
+                                  <tr>
+                                          <td>{{user.id}}</td>
+                                          <td>{{user.email}}</td>
+                                          <td>{{user.password}}</td>
+                                          <td>{{user.full_name}}</td>
+                                          <td>{{user.qualification}}</td>
+                                          <td>{{user.DOB}}</td>
+                                          
+                                  </tr>
+                          </tbody>
+                          {% endfor %}
+                  </table>
+                  <br>
+                  <br>
+        </center>
+    </div>
+
+
+
+
+      <div class="sub_chp_box">
+        <center>
+                <h1>Scores</h1>
+          
+                  <table>
+                          <thead>
+                                  <tr>
+                                          <th scope="col">Quiz ID</th>
+                                          <th scope="col">No of Questions</th>
+                                          <th scope="col">Date</th>
+                                          <th scope="col">Score</th>
+                                  </tr>
+                          </thead>
+                          {% for scores in scores %}
+                          <tbody>
+                                  <tr>
+                                          <td>{{scores.quiz_id}}</td>
+                                          <td>{{scores.no_of_questions}}</td>
+                                          <td>{{scores.time_stamp_of_attempt}}</td>
+                                          <td>{{scores.total_scored}}</td>
+                                  </tr>
+                          </tbody>
+                          {% endfor %}
+                  </table>
+                  <br>
+                  <br>
+        </center>
+    </div>
+
+      
+
+    
+      
+        
+       
+        <div class="sub_chp_box">
+          <center><h1>Quizzes</h1></center>
+        <center>
+          
+                
+                  <table>
+                          <thead>
+                                  <tr>
+                                          <th scope="col">Quiz ID</th>
+                                          <th scope="col">Quiz Name</th>
+                                          <th scope="col">No of Questions</th>
+                                          <th scope="col">Date of Quiz</th>
+                                          <th scope="col">Time Duration</th>
+                                          <th scope="col">Remarks</th>
+                                  </tr>
+                          </thead>
+                          {% for quiz in quiz %}
+                          <tbody>
+                                  <tr>
+                                          <td>{{quiz.id}}</td>
+                                          <td>{{quiz.name}}</td>
+                                          <td>{{quiz.no_of_questions}}</td>
+                                          <td>{{quiz.date_of_quiz}}</td>
+                                          <td>{{quiz.time_duration}}</td>
+                                          <td>{{quiz.remarks}}</td>
+                                  </tr>
+                          </tbody>
+                          
+                        
+                {% endfor %}
+                  </table>
+                  <br>
+                  <br>
+     </center>
+
+    </div>
+
+
+
+    <div class="sub_chp_box">
+      
+      <center>
+        <h1>Chapters</h1>
+        
+                                <table>
+                                        <thead>
+                                                <tr>
+                                                        <th scope="col">Chapter ID</th>
+                                                        <th scope="col">Name</th>
+                                                        <th scope="col">Subject ID</th>
+                                                        <th scope="col">Description</th>
+                                                </tr>
+                                        </thead>
+                                       
+                                {% for chapter in chapter %}
+                                       
+                                        <tbody>
+                                                <tr>
+                                                        <td>{{chapter.id}}</td>
+                                                        <td>{{chapter.name}}</td>
+                                                        <td>{{chapter.subject_id}}</td>
+                                                        <td>{{chapter.description}}</td>
+                                                </tr>
+                                        </tbody>
+                             
+        
+        {% endfor %}
+</table>
+<br>
+<br>
+</center>
+    </div>
+
+
+
+
+
+    <div class="sub_chp_box">
+        <center>
+                <h1>Subjects</h1>
+        
+  
+                                  <table>
+                                          <thead>
+                                                  <tr>
+                                                          <th scope="col">Subject ID</th>
+                                                          <th scope="col">Name</th>
+                                                          <th scope="col">Description</th>
+                                                          <th scope="col">Domain</th>
+                                                  </tr>
+                                          </thead>
+                                         
+                  {% for subject in subject %}
+                         
+                                          <tbody>
+                                                  <tr>
+                                                          <td>{{subject.id}}</td>
+                                                          <td>{{subject.name}}</td>
+                                                          <td>{{subject.description}}</td>
+                                                          <td>{{subject.domain}}</td>
+                                                  </tr>
+                                          </tbody>
+                                 
+                            
+         
+          {% endfor %}
+        </table>
+        <br>
+        <br>
+        </center>
+      </div>
+      
+
+
+
+
+
+    </body>
+
+     
+</html>

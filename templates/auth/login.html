@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" initial-scale=1, maximum-scale=1, user-scalable=no />
+        <title>Login Page</title>
+        <link rel="stylesheet" href="/static/login.css">
+
+      <style>
+        .error {
+            color : red;
+        }
+                
+        body {
+          background-image: url('/static/Background_image_home.png');
+  background-size: cover; /* or contain */
+  background-position: center center; 
+  background-repeat: no-repeat; 
+        }
+
+      </style>
+
+    </head>
+
+    <body>
+         <center>
+        <div class="headings" >
+            <h1 text-align="center">Login</h1>
+            <h2>Welcome to Quiz Master </h2>
+
+            {% if error_login %}
+            <p class=error><strong>Error:</strong> {{ error_login }}
+          {% endif %}
+
+          {% if error_password %}
+            <p class=error><strong>Error:</strong> {{ error_password }}
+          {% endif %}
+          
+        <form action="{{ url_for('auth.user_login') }}" method="POST">
+          <br>
+          <br>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address : </label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="type email" style="text-align:center;" name="u_email" required>
+            </div>
+            <br>
+            <br>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password : </label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder=" type password" style="text-align:center;" name="pwd" required>
+            </div>
+            <br>
+            <br>
+           
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+             
+
+          <!-- {% with messages = get_flashed_messages(with_categories = true) %}
+                {% if messages %}
+                      <p>
+                          {% for category, message in messages %}
+                               <p class={{category}}>"{{message}}"</p>
+                          {% endfor %}     
+                      </p>
+                {% endif %}
+          {% endwith %}             -->
+
+          <p>Not Registered ?</p> <a href="{{url_for('auth.register')}}">Register Here</a>
+        </center>
+        </div>
+    </body>
+
+
+</html>

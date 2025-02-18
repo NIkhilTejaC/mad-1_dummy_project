@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" initial-scale=1, maximum-scale=1, user-scalable=no />
+        <title>User Summary</title>
+        <link rel="stylesheet" href="/static/admin_add_subject.css">
+        <style>      
+            body {
+              background-image: url('/static/Background_image_dashboard.png');
+            }
+    
+          </style>
+    </head>
+
+    <body>
+      <div class="topnav">
+        <a class="active" href="/admin_Dashboard">Home</a>
+        <a href="/admin_quiz">Quiz</a>
+        <a href="/admin_summary">Summary</a>
+        <a href="/logout">Logout</a>
+        <div class="topnav-right">
+            <a href="#search">Search</a>
+            <a class="active_1">Admin</a>
+          </div>
+      </div>
+      
+      
+
+    
+
+
+    {% if subject|length == 0 %}
+          <h4>No Subjects</h4>
+    {% else %}
+                <div>
+                <center>
+                  {% for subject in subject %}
+                  <div class="sub_chp_box">
+                        <br>
+                              <div class="sub_heading_box">
+                                    <p class="sub_heading">{{subject.name}}</p>
+                              </div>
+                        <br>
+                      <table class="table table-bordered">
+            
+                              <thead>
+                               
+                                <tr>
+                                      <th scope="col">Subject ID</th>
+                                      <th scope="col">Chapter ID</th>
+                                      <th scope="col">Chapter Name</th>
+                                      <th scope="col">Description</th>
+                                      <th scope="col">Action</th>
+
+
+
+                                </tr>
+                               </thead>
+                                     {% for chapter in chapter %}
+                                    
+                                                {% if chapter.subject_id == subject.id %}
+
+                                                <tbody>
+                                                        <tr>
+                                                              <td>{{chapter.subject_id}}</td>
+                                                              <td>{{chapter.id}}</td></th>
+                                                              <td>{{chapter.name}}</td>
+                                                              <td>{{chapter.description}}</td>
+                                                              
+                                                              <td>
+                                                                        <a href="/admin_edit_chapter/{{chapter.id}}">
+                                                                              <button type="submit" class="my-button-2"><b>Edit</b></button>
+                                                                        </a>
+                                                                        <a href="/admin_delete_chapter/{{chapter.id}}">
+                                                                              <button type="submit" class="my-button-2"><b>Delete</b></button>
+                                                                        </a>
+                                                              </td>
+                                                        </tr>
+                                                
+                                                {% endif %}
+                                     {% endfor %}
+                       
+                            </tbody>
+                      </table>
+                      <br>
+                      <div>
+                       <a href="/admin_add_chapter/{{subject.id}}">
+                        <button type="submit" class="my-button-1">Add Chapter</button>
+                       </a>
+                  </div>
+                  <br>
+                  <a href="/admin_edit_subject/{{subject.id}}">
+                        <button type="submit" class="my-button">Edit Subject</button>
+                  </a>
+                  <br>
+                  <a href="/admin_delete_subject/{{subject.id}}">
+                        <button type="submit" class="my-button">Delete Subject</button>
+                  </a>
+                  
+                  </div>
+                      {% endfor %}
+                  
+                    </center>
+                </div>
+    {% endif %}
+    <br>
+            <div >
+                  <center>
+                        <a href="/admin_add_subject">
+                              <button type="submit" class="my-button">Add Subject</button>
+                        </a>
+                  </center>
+            </div>
+      <br>
+</body>
+
+
+</html>

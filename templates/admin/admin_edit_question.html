@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" initial-scale=1, maximum-scale=1, user-scalable=no />
+        <title>User Summary</title>
+        <link rel="stylesheet" href="/static/admin_add_subject.css">
+        <style>      
+          body {
+            background-image: url('/static/Background_image_dashboard.png');
+          }
+  
+        </style>
+    </head>
+
+    <body>
+
+        <div class="box_max">
+            <center>
+            <h2>New Question</h2>
+            <form action="/admin_edit_question/{{id}}" method="POST">
+                <div class="form-group">
+                    <label for="name">Subject ID</label>
+                    <input type="text" class="form-control" id="name" placeholder="{{ques.subject_id}}" name="subject_id" required>
+                  </div>
+                  <br>
+                <div class="form-group">
+                    <label for="name">Chapter ID</label>
+                    <input type="text" class="form-control" id="name" placeholder="{{ques.chapter_id}}" name="chapter_id" required>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="name">Quiz ID</label>
+                    <input type="text" class="form-control" id="name" placeholder="{{ques.quiz_id}}" name="quiz_id" required>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Question Title</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="{{ques.question_title}}" name="qt" required>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Question Statement</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="{{ques.question_statement}}" name="qs" required>
+                  </div>
+                  <br>
+                  <br>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Option-1</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="{{ques.option_1}}" name="option_1" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Option-2</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="{{ques.option_2}}" name="option_2" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Option-3</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="{{ques.option_3}}" name="option_3" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Option-4</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="{{ques.option_4}}" name="option_4" required>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Correct Option</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="{{ques.correct_option}}" name="correct_option" required>
+                  </div>
+
+                    <br>
+                  <button type="submit" class="btn btn-info">Save</button>
+                    <br>
+                </form>
+                    <br>
+                      <a href="/admin_quiz" >
+                          <button type="submit" class="btn btn-info">Close</button>
+                      </a>   
+                    <br>
+        </center>
+        </div>
+        
+    </body>
+
+
+</html>

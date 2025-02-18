@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" initial-scale=1, maximum-scale=1, user-scalable=no />
+        <title>User Summary</title>
+        <link rel="stylesheet" href="/static/admin_add_subject.css">
+
+    </head>
+    <style>      
+      body {
+        background-image: url('/static/Background_image_dashboard.png');
+      }
+
+    </style>
+    <body>
+
+        <div class="box">
+            <center>
+            <h2>New Quiz</h2>
+            <form action="/admin_add_quiz" method="POST">
+                
+                  <div class="form-group">
+                    <label for="name">Subject-ID</label>
+                    <input type="number" class="form-control" id="name" placeholder="ID of Subject" name="subject_id" required>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="name">Chapter-ID</label>
+                    <input type="number" class="form-control" id="name" placeholder="ID of Chapter" name="chapter_id" required>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="name">Quiz Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="ID of Chapter" name="name" required>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Date of Quiz</label>
+                    <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Date of Quiz" name="doq" required>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Time Duration</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="HH:MM:SS" name="toq" required>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Remarks</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Remarks" name="remark" required>
+                  </div>
+                    <br>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">No of Questions</label>
+                      <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Enter No of Questions" name="noq" required>
+                    </div>
+                      <br>
+                  <button type="submit" class="btn btn-info">Save</button>
+                    <br>
+                </form>
+
+                <br>
+                    <a href="/admin_quiz" >
+                      <button type="submit" class="btn btn-info">Cancel</button>
+                    </a>   
+                      <br>
+        </center>
+        </div>
+        
+    </body>
+
+
+</html>

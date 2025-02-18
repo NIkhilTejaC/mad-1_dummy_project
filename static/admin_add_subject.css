@@ -1,0 +1,162 @@
+.box {
+    width : 10cm;
+        height : 11cm;
+        margin: auto ;
+        outline : solid 5px rgb(249, 42, 138);
+        background-color: rgb(140, 219, 239);
+        padding: 3px;
+        background-image: url('/static/Background_image.png');
+        border-radius: 25px;
+        
+
+}
+
+.box_max {
+  width : 50%;
+        height : 12cm;
+        margin: auto ;
+        outline : solid 1px black;
+        background-color: rgb(140, 219, 239);
+        padding: 3px;
+        border-radius: 15px;
+        background-image: url('/static/Background_image.png');
+
+}
+
+.choice_box {
+    width : 50%;
+    border-radius: 15px;
+        height : 8cm;
+        margin: auto ;
+        outline : solid 4px rgb(162, 25, 128);
+        background-color: rgb(245, 197, 243);
+        padding: 3px;
+        margin-top: 2cm;
+        background-image: url('/static/Background_image.png');
+
+}
+.choice_box-temp{
+  width : 50%;
+      height : 2cm;
+      margin: auto ;
+      outline : solid 4px rgb(162, 25, 128);
+      background-color: rgb(245, 197, 243);
+      padding: 3px;
+      margin-top: 2cm;
+      border-radius: 15px;
+      background-image: url('/static/Background_image.png');
+
+}
+
+.sub_chp_box {
+  width: 50%;
+  margin: auto;
+  outline: solid 4px rgb(162, 25, 128);
+  background-color: rgb(246, 217, 244);
+  padding: 3px;
+  margin-top: 2cm;
+  /* Make height adjust to content */
+  height: auto; 
+  /* Ensure tables within the div also adjust their height */
+  display: table; 
+  border-radius: 25px;
+  background-image: url('/static/Background_image.png');
+
+}
+
+.sub_heading {
+  width: 2cm;
+  margin: auto;
+  outline: solid 3px rgb(249, 225, 9);
+  outline-color: #04066c;
+  background-color: rgb(247, 239, 77);
+  padding: 3px;
+  border-radius: 25px;
+}
+
+
+.my-button {
+  background-color:  #e771c3; /* Green */
+  border: solid r#6e0435 2px;
+  color: rgb(28, 26, 27);
+  padding: 9px 13px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 15px; 
+}
+
+.my-button-1 {
+  background-color: #f293e8; /* Green */
+  border: solid rgb(241, 7, 217) 2px;
+  color: rgb(28, 26, 27);
+  padding: 9px 13px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 15px; 
+}
+
+.my-button-2 {
+  background-color: #f07ac1; /* Green */
+  border: solid rgb(3, 54, 155) 2px;
+  color: rgb(28, 26, 27);
+  padding: 5px 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+table, th, td {
+  border: 1px solid rgb(3, 81, 56);
+  background-color: #f7f1bf;
+}
+
+   /* USER DASH .css
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #a3e6ec;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: #0a0909;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #f7f429;
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #04176e;
+    color: rgb(240, 213, 9);
+  }
+
+  /* Right-aligned section inside the top navigation */
+.topnav-right {
+    float: right;
+  }
+
+.topnav-right a.active_1{
+    background-color: #04176e;
+    color: rgb(240, 213, 9);
+  }

@@ -1,0 +1,91 @@
+<div class="choice_box-temp">
+      <center>
+          <a href="/admin_add_subject">
+               <button type="submit" class="btn btn-primary">Add Subject</button>
+          </a>
+         
+          <a href="/admin_add_chapter">
+            <button type="submit" class="btn btn-primary">Add Chapter</button>
+          </a>
+          
+          <a href="/admin_add_quiz">
+                <button type="submit" class="btn btn-primary">Add Quiz</button>
+          </a>
+          
+          <a href="/admin_add_question">
+            <button type="submit" class="btn btn-primary">Add Question</button>
+          </a>
+          
+    </center>
+    </div>   
+
+
+
+{% if subject|length == 0 %}
+          <h4>No subjects</h4>
+    {% else %}
+             
+                <div>
+                <center>
+                      <table class="table table-bordered">
+                              <thead>
+                                      <tr>
+                                            <th scope="col">Subject ID</th>
+                                            <th scope="col">Subject Name</th>
+                                            <th scope="col">Description</th>
+                                            <th scope="col">Domain</th>
+
+                                      </tr>
+                              </thead>
+                              {% for subject in subject %}
+                              <tbody>
+                                      <tr>
+                                            <th scope="row">{{loop.index}}</th>
+                                            <td>{{subject.name}}</td>
+                                            <td>{{subject.description}}</td>
+                                            <td>{{subject.domain}}</td>
+                                      </tr>
+                              </tbody>
+                              {% endfor %}
+                      </table>
+                      <a href="/admin_add_subject">
+                        <button type="submit" class="btn btn-primary">Add Subject</button>
+                      </a>
+                    </center>
+                </div>
+    {% endif %}
+    
+
+    {% if chapter|length == 0 %}
+          <h4>No Chapters</h4>
+    {% else %}
+             
+                <div>
+                <center>
+                      <table class="table table-bordered">
+                              <thead>
+                                      <tr>
+                                            <th scope="col">Sl No</th>
+                                            <th scope="col">Chapter Name</th>
+                                            <th scope="col">Description</th>
+                                            <th scope="col">Subject ID</th>
+
+                                      </tr>
+                              </thead>
+                              {% for chapter in chapter %}
+                              <tbody>
+                                      <tr>
+                                            <th scope="row">{{loop.index}}</th>
+                                            <td>{{chapter.name}}</td>
+                                            <td>{{chapter.description}}</td>
+                                            <td>{{chapter.subject_id}}</td>
+                                      </tr>
+                              </tbody>
+                              {% endfor %}
+                      </table>
+                      <a href="/admin_add_chapter">
+                        <button type="submit" class="btn btn-primary">Add Chapter</button>
+                      </a>
+                    </center>
+                </div>
+    {% endif %}

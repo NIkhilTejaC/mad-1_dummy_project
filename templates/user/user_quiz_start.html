@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" initial-scale=1, maximum-scale=1, user-scalable=no />
+        <title>User Summary</title>
+        <link rel="stylesheet" href="/static/admin_add_subject.css">
+        <style>
+            #timer {
+            font-size: 0.5cm;
+            color: #333;
+        }
+           
+            body {
+              background-image: url('/static/Background_image_dashboard.png');
+            }
+    
+
+        </style>
+    </head>
+
+    <body>
+       
+        
+              <div class="sub_chp_box">
+              <center>
+                <form action="/user_quiz_start_check/{{user.id}}/{{question.id}}/{{score}}/{{count+1}}" method="POST">
+                <p>Time Duration : {{quiz.time_duration}}</p>
+                <div>Time Remaining : <div id="timer">00:00:00</div></div>                      
+                <div>       
+                                            <p>{{count}}/{{quiz.no_of_questions}}</p>
+                                            <p>Question ID : {{question.id}}</p>
+                                            <p>Question Title : {{question.question_title}}</p>
+                                            <p>Question Statement : {{question.question_statement}}</p>
+                                            
+                                            
+                                            
+
+                                                
+                                                
+                                                <input type="hidden" name="elapsed_time" id="elapsed_time" value="0">
+                                              <div class="radio">
+                                                  
+                                                <input type="radio" name="answer" id="o-1"  value="option_1" >
+                                                <label for="o-1">
+                                                    1. {{question.option_1}}
+                                                </label>
+                                                <br>
+                                                 
+                                                <input type="radio" name="answer" id="o-2"  value="option_2" >
+                                                <label for="o-2">
+                                                    2. {{question.option_2}}
+                                                </label>
+                                                <br>
+                                               
+                                                <input type="radio"  name="answer" id="o-3"  value="option_3" >
+                                                <label for="o-3">
+                                                    3. {{question.option_3}}
+                                                </label>
+                                                <br>
+
+                                                <input type="radio"  name="answer" id="o-4"  value="option_4" >
+                                                <label for="o-4">
+                                                    4. {{question.option_4}}
+                                                </label>
+                                                <br>
+
+                                              </div>
+                                              <button type="submit">Save and Next</button>
+                                          </form>
+                                          
+                                               
+                                             
+                                                
+                                      </div>
+                               <!-- <a href="/user_quiz_start_check/{{user.id}}/{{question.id}}/{{score}}">
+                                
+                              </a> -->
+                              <a href="/user_quiz_end_submit/{{user.id}}/{{question.quiz_id}}/{{score}}">
+                                <button type="submit">Submit</button>
+                          </a>                           
+
+              </center>
+        </div>
+
+        <script>
+            // Get the timer duration passed from the server
+            let remainingTime = {{ timer_duration }};
+            const timerElement = document.getElementById('timer');
+            const elapsedTimeInput = document.getElementById('elapsed_time');
+    
+            function startTimer() {
+                const interval = setInterval(() => {
+                    if (remainingTime <= 0) {
+                        clearInterval(interval);
+                        // Redirect to the end route when the timer expires
+                        window.location.href = "{{ url_for('user_quiz_end_submit', user_id=user.id, quiz_id = quiz.id, score=score ) }}";
+                        return;
+                    }
+    
+                    // Calculate hours, minutes, and seconds
+                    const hours = Math.floor(remainingTime / 3600);
+                    const minutes = Math.floor((remainingTime % 3600) / 60);
+                    const seconds = remainingTime % 60;
+    
+                    // Update the timer display
+                    timerElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes
+                        .toString()
+                        .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    
+                    // Update the elapsed time input (to persist the remaining time)
+                    elapsedTimeInput.value = {{ timer_duration }} - remainingTime;
+    
+                    remainingTime -= 1;
+                }, 1000);
+            }
+    
+            // Start the timer on page load
+            window.onload = startTimer;
+        </script>
+
+    </body>
+    </html>

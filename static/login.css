@@ -1,0 +1,22 @@
+body {
+    background-color: rgb(244, 237, 244);
+}
+
+h5 {
+    background-color: rgb(220, 151, 193);
+}
+
+.headings {
+        width : 12cm;
+        height : 10cm;
+        margin: auto ;
+        outline : solid 5px rgb(237, 6, 141);
+        background-color:rgb(189, 226, 233);
+        border-radius: 20px;
+        background-image: url('/static/Background_image.png');
+  background-size: cover; /* or contain */
+  background-position: center center; 
+  background-repeat: no-repeat; 
+        
+        
+}

@@ -1,0 +1,18 @@
+Step -1 on terminal run "flask shell"
+
+
+
+Step -2 
+from your_main_file import db, User  # Replace 'your_main_file' with the actual filename
+
+admin_user = User(
+    email="admin@example.com",
+    password="adminpassword",
+    type="admin",
+    full_name="Admin User",
+    qualification="Admin Qualification",
+    DOB="1990-01-01",
+)
+db.session.add(admin_user)
+db.session.commit()
+print("Admin user added successfully!")

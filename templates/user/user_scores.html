@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" initial-scale=1, maximum-scale=1, user-scalable=no />
+        <title>User Scores</title>
+        <link rel="stylesheet" href="/static/admin_add_subject.css">
+        <style>      
+                body {
+                  background-image: url('/static/Background_image_dashboard.png');
+                }
+        
+              </style>
+    </head>
+
+    <body>
+          <div class="topnav">
+                <a href="/user_dashboard/{{user.id}}">Home</a>
+                <a class="active" href="/user_scores/{{user.id}}">Scores</a>
+                <a href="/user_summary/{{user.id}}">Summary</a>
+                <a href="/user_profile/{{user.id}}">Profile</a>
+                <a href="/logout">Logout</a>
+                <div class="topnav-right">
+                    <a href="#search">Search</a>
+                    <a class="active_1">{{user.full_name}}</a>
+                </div>
+          </div>
+
+          <div class="sub_chp_box">
+              <center>
+               
+                        <table>
+                                <thead>
+                                        <tr>
+                                                <th scope="col">Quiz ID</th>
+                                              
+                                                <th scope="col">No of Questions</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Score</th>
+                                        </tr>
+                                </thead>
+                                {% for scores in scores %}
+                                <tbody>
+                                        <tr>
+                                                <td><center>{{scores.quiz_id}}</center></td>
+                                                
+                                                <td><center>{{scores.no_of_questions}}</center></td>
+                                                <td><center>{{scores.time_stamp_of_attempt}}</center></td>
+                                                <td><center>{{scores.total_scored}}</center></td>
+                                        
+                                        </tr>
+                                </tbody>
+                                {% endfor %}
+                        </table>
+                
+              </center>
+          </div>
+      
+    </body>
+
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" initial-scale=1, maximum-scale=1, user-scalable=no />
+        <title>User Summary</title>
+        <link rel="stylesheet" href="/static/admin_add_subject.css">
+        <style>      
+          body {
+            background-image: url('/static/Background_image_dashboard.png');
+          }
+  
+        </style>
+    </head>
+
+    <body>
+
+        <div class="box">
+            <center>
+            <h2>New Subject</h2>
+            <form action="/admin_add_subject"  method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Name of Subject" name="name" required>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Description</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Description" name="description" required>
+                  </div>
+                  <br>
+
+                  <div class="form-group">
+                    <label for="domain">Domain: </label>
+                    <select name="domain" id="domain" name="domain" required>
+                        <option value="none">select</option>
+                        <option value="computer_science">Computer Science</option>
+                        <option value="science">Science</option>
+                        <option value="arts">Arts</option>
+                        <option value="commerce">Commerce</option>
+                        <option value="gk">GK</option>
+                      </select>
+                    </div>
+                    <br>
+                  <button type="submit" class="btn btn-info">Save</button>
+                  
+                    <br>
+                </form>
+                <br>
+                <a href="/admin_dashboard" >
+                  <button type="submit" class="btn btn-info">Cancel</button>
+                </a>   
+                  <br>
+        </center>
+        </div>
+        
+    </body>
+
+
+</html>

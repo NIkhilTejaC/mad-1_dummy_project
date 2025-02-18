@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" initial-scale=1, maximum-scale=1, user-scalable=no />
+        <title>User Summary</title>
+        <link rel="stylesheet" href="/static/admin_add_subject.css">
+        <style>      
+          body {
+            background-image: url('/static/Background_image_dashboard.png');
+          }
+  
+        </style>
+    </head>
+
+    <body>
+    {% if subject_id > 0 %}
+        <div class="box">
+            <center>
+            <h2>New Chapter</h2>
+            <form action="/admin_add_chapter/{{subject_id}}" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Name of Chapter" name="name" required>
+                  </div>
+                  <br>
+                  <!-- <div class="form-group">
+                    <label for="exampleInputPassword1">Subject ID</label>
+                    <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Enter Subject ID" name="sid" required>
+                  </div>
+                  <br> -->
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Description</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Description" name="description" required>
+                  </div>
+                  
+                    <br>
+                  <button type="submit" class="btn btn-info">Save</button>
+                        
+                </form>
+                <br>
+                    <a href="/admin_dashboard" >
+                      <button type="submit" class="btn btn-info">Cancel</button>
+                    </a>   
+                      <br>
+        </center>
+        </div>
+        
+    </body>
+  {% endif %}
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #timer {
+            font-size: 2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Countdown Timer</h1>
+    <div id="timer">00:00:00</div>
+
+    <script>
+        // Set timer duration in seconds
+        const timerDuration = 300; // Example: 5 minutes
+        let remainingTime = timerDuration;
+
+        function startTimer() {
+            const timerElement = document.getElementById('timer');
+            const interval = setInterval(() => {
+                if (remainingTime <= 0) {
+                    clearInterval(interval);
+                    timerElement.textContent = "Time's up!";
+                    return;
+                }
+                // Calculate hours, minutes, and seconds
+                const hours = Math.floor(remainingTime / 3600);
+                const minutes = Math.floor((remainingTime % 3600) / 60);
+                const seconds = remainingTime % 60;
+
+                // Format the time as HH:MM:SS
+                timerElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes
+                    .toString()
+                    .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                remainingTime -= 1;
+            }, 1000);
+        }
+
+        // Start the timer on page load
+        window.onload = startTimer;
+    </script>
+</body>
+</html>

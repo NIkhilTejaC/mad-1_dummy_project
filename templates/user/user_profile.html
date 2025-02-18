@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" initial-scale=1, maximum-scale=1, user-scalable=no />
+        <title>User Profile</title>
+        <link rel="stylesheet" href="/static/admin_add_subject.css">
+        <style>      
+          body {
+            background-image: url('/static/Background_image_dashboard.png');
+          }
+  
+        </style>
+    </head>
+
+    <body>
+      <div class="topnav">
+        <a href="/user_dashboard/{{user.id}}">Home</a>
+        <a href="/user_scores/{{user.id}}">Scores</a>
+        <a href="/user_summary/{{user.id}}">Summary</a>
+        <a class="active" href="/user_profile/{{user.id}}">Profile</a>
+        <a href="/logout">Logout</a>
+        <div class="topnav-right">
+            <a href="#search">Search</a>
+            <a class="active_1">{{user.full_name}}</a>
+      </div>
+      </div>
+
+      <div class="sub_chp_box">
+        <center>
+                <p>ID : <b>{{user.id}}</b></p>
+                <p>Email : <b>{{user.email}}</b></p>
+                <p>Password : <b>{{user.password}}</b></p>
+                <p>Full Name : <b>{{user.full_name}}</b></p>
+                <p>Qualifications : <b>{{user.qualification}}</b></p>
+                <p>Date of Birth : <b>{{user.DOB}}</b></p>
+                  
+                <div>
+                <a href="/user_profile_edit/{{user.id}}" >
+                  <button type="submit" class="my-button">Edit</button>
+                </a>   
+              </div>
+        </center>
+    </div>
+           
+    </body>
+
+
+</html>

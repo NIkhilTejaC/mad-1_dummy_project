@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" initial-scale=1, maximum-scale=1, user-scalable=no />
+        <title>User Summary</title>
+        <link rel="stylesheet" href="/static/admin_add_subject.css">
+        <style>      
+          body {
+            background-image: url('/static/Background_image_dashboard.png');
+          }
+       
+       .myChart{
+        width:40%;max-width:5cm;
+        background-color: aliceblue;
+       }
+        </style>
+ <script
+ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+ </script>
+        
+    </head>
+
+    <body>
+      <div class="topnav">
+        <a href="/user_dashboard/{{user.id}}">Home</a>
+        <a href="/user_scores/{{user.id}}">Scores</a>
+        <a class="active" href="/user_summary/{{user.id}}">Summary</a>
+        <a href="/user_profile/{{user.id}}">Profile</a>
+        <a href="/logout">Logout</a>
+        <div class="topnav-right">
+            <a href="#search">Search</a>
+            <a class="active_1">{{user.full_name}}</a>
+          </div>
+      </div>
+
+                       
+                        <canvas id="myChart"></canvas>
+
+                        <script>
+                                               const xValues = [50,60,70,80,90,100,110,120,130,140,150];
+const yValues = [7,8,8,9,9,9,10,11,14,14,15];
+
+new Chart("myChart", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor:"rgba(0,0,255,1.0)",
+      borderColor: "rgba(0,0,255,0.1)",
+      data: yValues
+    }]
+  },
+  options:{...}
+});
+                        </script>
+      
+          
+      <div class="sub_chp_box">
+        <center>
+                <h1>Scores</h1>
+          
+                  <table>
+                          <thead>
+                                  <tr>
+                                          <th scope="col">Quiz ID</th>
+                                          <th scope="col">No of Questions</th>
+                                          <th scope="col">Date</th>
+                                          <th scope="col">Score</th>
+                                  </tr>
+                          </thead>
+                          {% for scores in scores %}
+                          <tbody>
+                                  <tr>
+                                          <td>{{scores.quiz_id}}</td>
+                                          <td>{{scores.no_of_questions}}</td>
+                                          <td>{{scores.time_stamp_of_attempt}}</td>
+                                          <td>{{scores.total_scored}}</td>
+                                  </tr>
+                          </tbody>
+                          {% endfor %}
+                  </table>
+                  <br>
+                  <br>
+        </center>
+    </div>
+
+      
+
+    
+      
+        
+       
+        <div class="sub_chp_box">
+          <center><h1>Quizzes</h1></center>
+        <center>
+          
+                
+                  <table>
+                          <thead>
+                                  <tr>
+                                          <th scope="col">Quiz ID</th>
+                                          <th scope="col">Quiz Name</th>
+                                          <th scope="col">No of Questions</th>
+                                          <th scope="col">Date of Quiz</th>
+                                          <th scope="col">Time Duration</th>
+                                          <th scope="col">Remarks</th>
+                                  </tr>
+                          </thead>
+                          {% for quiz in quiz %}
+                {% for scores in scores %}
+                        {% if quiz.id == scores.quiz_id %}
+                          <tbody>
+                                  <tr>
+                                          <td>{{quiz.id}}</td>
+                                          <td>{{quiz.name}}</td>
+                                          <td>{{quiz.no_of_questions}}</td>
+                                          <td>{{quiz.date_of_quiz}}</td>
+                                          <td>{{quiz.time_duration}}</td>
+                                          <td>{{quiz.remarks}}</td>
+                                  </tr>
+                          </tbody>
+                          
+                        {% endif %}
+                        {% endfor %}
+                {% endfor %}
+                  </table>
+                  <br>
+                  <br>
+     </center>
+
+    </div>
+
+
+
+    <div class="sub_chp_box">
+      
+      <center>
+        <h1>Chapters</h1>
+        
+                                <table>
+                                        <thead>
+                                                <tr>
+                                                        <th scope="col">Chapter ID</th>
+                                                        <th scope="col">Name</th>
+                                                        <th scope="col">Subject ID</th>
+                                                        <th scope="col">Description</th>
+                                                </tr>
+                                        </thead>
+                                        {% for quiz in quiz %}
+                {% for scores in scores %}
+                        {% if quiz.id == scores.quiz_id %}
+                                {% for chapter in chapter %}
+                                        {% if chapter.id == quiz.chapter_id %}
+
+                                        <tbody>
+                                                <tr>
+                                                        <td>{{chapter.id}}</td>
+                                                        <td>{{chapter.name}}</td>
+                                                        <td>{{chapter.subject_id}}</td>
+                                                        <td>{{chapter.description}}</td>
+                                                </tr>
+                                        </tbody>
+                                
+                                {% endif %}
+                    {% endfor %}
+                  {% endif %}
+                  {% endfor %}
+          
+        
+        {% endfor %}
+</table>
+<br>
+<br>
+</center>
+    </div>
+
+
+
+
+
+    <div class="sub_chp_box">
+        <center>
+                <h1>Subjects</h1>
+        
+  
+                                  <table>
+                                          <thead>
+                                                  <tr>
+                                                          <th scope="col">Subject ID</th>
+                                                          <th scope="col">Name</th>
+                                                          <th scope="col">Description</th>
+                                                          <th scope="col">Domain</th>
+                                                  </tr>
+                                          </thead>
+                                          {% for quiz in quiz %}
+         
+      {% for scores in scores %}
+            {% if quiz.id == scores.quiz_id %}
+                  {% for subject in subject %}
+                          {% if subject.id == quiz.subject_id %}
+                                          <tbody>
+                                                  <tr>
+                                                          <td>{{subject.id}}</td>
+                                                          <td>{{subject.name}}</td>
+                                                          <td>{{subject.description}}</td>
+                                                          <td>{{subject.domain}}</td>
+                                                  </tr>
+                                          </tbody>
+                                 
+                                  {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                    {% endfor %}
+            
+         
+          {% endfor %}
+        </table>
+        <br>
+        <br>
+        </center>
+      </div>
+      
+
+
+
+      <!-- <div>
+        <canvas class="myChart" id="myChart"></canvas>
+      </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+      <script>
+        const ctx = document.getElementById('myChart');
+      
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+              label: '# of Votes',
+              data: [12, 19, 3, 5, 2, 3],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script> -->
+    </body>
+
+
+</html>
